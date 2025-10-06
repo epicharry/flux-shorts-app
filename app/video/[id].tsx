@@ -10,6 +10,7 @@ import {
   StyleSheet,
   StatusBar,
   ActivityIndicator,
+  Dimensions
 } from 'react-native';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import { VideoView, useVideoPlayer } from 'expo-video';
@@ -391,7 +392,7 @@ const styles = StyleSheet.create({
   header: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 16, gap: 16 },
   backButton: { padding: 4 },
   headerTitle: { fontSize: 18, fontWeight: 'bold', color: '#fbbf24', flex: 1 },
-  videoPlayer: { height: 300, marginHorizontal: 16, marginBottom: 24, borderRadius: 12, overflow: 'hidden', backgroundColor: '#000' },
+  videoPlayer: { height: Dimensions.get('window').height * 0.6, marginHorizontal: 16, marginBottom: 24, borderRadius: 12, overflow: 'hidden', backgroundColor: '#000' },
   thumbnailContainer: { flex: 1, position: 'relative' },
   thumbnail: { width: '100%', height: '100%', resizeMode: 'cover' },
   playButtonContainer: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.3)' },

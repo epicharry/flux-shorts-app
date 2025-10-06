@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Image, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Image, StyleSheet, ActivityIndicator, Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
@@ -95,27 +95,6 @@ export default function HomeScreen() {
                   </Text>
                 </LinearGradient>
               </TouchableOpacity>
-
-              <View style={styles.videoGrid}>
-                {featuredMovies.slice(1, 3).map((movie) => (
-                  <TouchableOpacity
-                    key={movie.id}
-                    style={styles.gridItem}
-                    onPress={() => navigateToVideo(movie)}
-                  >
-                    <Image source={{ uri: movie.thumbnailUrl }} style={styles.gridImage} />
-                    <LinearGradient
-                      colors={['transparent', 'rgba(0,0,0,0.9)']}
-                      style={styles.gridOverlay}
-                    >
-                      <Text style={styles.gridTitle}>{movie.title}</Text>
-                      <Text style={styles.gridMeta}>
-                        {movie.metadata.genre} • {movie.metadata.year}
-                      </Text>
-                    </LinearGradient>
-                  </TouchableOpacity>
-                ))}
-              </View>
             </View>
           )}
 
@@ -191,7 +170,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   featuredVideo: {
-    height: 220,
+    height: Dimensions.get('window').height * 0.6,
     borderRadius: 12,
     overflow: 'hidden',
     marginBottom: 16,
